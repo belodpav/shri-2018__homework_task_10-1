@@ -27,23 +27,17 @@ const emitter = {
  }
 
 
-const handlerFirst = function () {
-    console.log('first');
-};
-
-const handlerSecond = function () {
-    console.log('second');
-};
-
-
 // подписали
-emitter.on('event', handlerFirst);
+emitter.on('event', function () {
+    console.log('first');
+});
 // обработали событие
-//emitter.emit('event');
-emitter.on('event', handlerSecond);
+
 emitter.emit('event');
 // отписали
-emitter.off('event', handlerFirst);
+emitter.off('event', function () {
+    console.log('first');
+});
 
 console.log('----');
 emitter.emit('event');
